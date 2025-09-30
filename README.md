@@ -104,7 +104,7 @@ createActivityLog(
 $user = \App\Models\User::factory()->create()->fresh();
 
 createActivityLog(
-    $made_by_model:$user,
+    made_by_model:$user,
     human_message: 'User registered',
     human_extra_message: ['email' => $user->email]
 );
@@ -113,7 +113,7 @@ createActivityLog(
 $user = \App\Models\User::factory()->create()->fresh();
 
 createActivityLog()->handle(
-    $made_by_model:$user,
+    made_by_model:$user,
     human_message: 'User created via factory',
     developer_message: 'POST /register',
     developer_extra_message: ['ip' => request()->ip()],
