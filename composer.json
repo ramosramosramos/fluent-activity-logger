@@ -1,15 +1,11 @@
 {
-    "name": "kentjerone/laravel-chain-rule",
-    "description": "A chainable rule builder for Laravel validation.",
+    "name": "kentjerone/laravel-activity-logger",
+    "description": "A activity logger for models",
     "type": "library",
     "keywords": [
         "laravel",
-        "validation",
-        "rules",
-        "chainable",
-        "fluent",
-        "builder",
-        "form-request"
+        "logger",
+        "activity logger"
     ],
     "require": {
         "php": "^8.2",
@@ -23,15 +19,15 @@
     },
     "autoload": {
         "psr-4": {
-            "KentJerone\\ChainRule\\": "src/"
+            "KentJerone\\ActivityLogger\\": "src/"
         },
         "files": [
-            "src/Helpers/chain_rule_helper.php"
+            "src/Helpers/activity_logger_helper.php"
         ]
     },
     "autoload-dev": {
         "psr-4": {
-            "KentJerone\\ChainRule\\Tests\\": "tests/"
+            "KentJerone\\ActivityLogger\\Tests\\": "tests/"
         }
     },
     "license": "MIT",
@@ -42,9 +38,9 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/ramosramosramos/laravel-chain-rule/issues",
-        "source": "https://github.com/ramosramosramos/laravel-chain-rule",
-        "docs": "https://github.com/ramosramosramos/laravel-chain-rule#readme"
+        "issues": "https://github.com/ramosramosramos/laravel-activity-logger/issues",
+        "source": "https://github.com/ramosramosramos/laravel-activity-logger",
+        "docs": "https://github.com/ramosramosramos/laravel-activity-logger#readme"
     },
     "minimum-stability": "stable",
     "scripts": {

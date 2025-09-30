@@ -15,14 +15,4 @@ if (! function_exists('chainRule')) {
         return ChainRule::make();
     }
 }
-/**
- * Create a new ChainRule instance.
- *
- * @return \KentJerone\ChainRule\ChainRule
- */
-if (! function_exists('cr')) {
-    function cr(): ChainRule
-    {
-        return ChainRule::make();
-    }
-}
+
