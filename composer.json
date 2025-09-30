@@ -47,9 +47,9 @@
         }
     },
     "support": {
-        "issues": "https://github.com/ramosramosramos/laravel-activity-logger/issues",
-        "source": "https://github.com/ramosramosramos/laravel-activity-logger",
-        "docs": "https://github.com/ramosramosramos/laravel-activity-logger#readme"
+        "issues": "https://github.com/ramosramosramos/fluent-activity-logger/issues",
+        "source": "https://github.com/ramosramosramos/fluent-activity-logger",
+        "docs": "https://github.com/ramosramosramos/fluent-activity-logger#readme"
     },
     "minimum-stability": "stable",
     "scripts": {
