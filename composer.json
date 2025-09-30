@@ -1,9 +1,10 @@
 {
-    "name": "kentjerone/laravel-activity-logger",
-    "description": "A activity logger for models",
+    "name": "kentjerone/fluent-activity-logger",
+    "description": "A fluent activity logger for models",
     "type": "library",
     "keywords": [
         "laravel",
+        "fluent",
         "logger",
         "activity logger"
     ],
