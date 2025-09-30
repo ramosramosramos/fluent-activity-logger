@@ -37,6 +37,13 @@
             "email": "ramosramosramosramos12@gmail.com"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+               "KentJerone\\ActivityLogger\\Providers\\ActivityLoggerProvider"
+            ]
+        }
+    },
     "support": {
         "issues": "https://github.com/ramosramosramos/laravel-activity-logger/issues",
         "source": "https://github.com/ramosramosramos/laravel-activity-logger",
