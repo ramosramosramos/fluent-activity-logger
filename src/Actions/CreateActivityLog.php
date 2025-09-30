@@ -33,7 +33,7 @@ final class CreateActivityLog
         // try catch
         // if activity log table is not exists then return null
         try {
-            if (! Schema::hasTable(config()->string('activitylogger.table_name'))) {
+            if (!Schema::hasTable(config()->string('activitylogger.table_name'))) {
                 return null;
             }
 
@@ -42,7 +42,9 @@ final class CreateActivityLog
             $model = $made_by_model ?? auth()->user();
 
             return ActivityLog::create(attributes: [
+                //@phpstan-ignore-next-line
                 'made_by_model_id' => $model->getKey(),
+                //@phpstan-ignore-next-line
                 'made_by_model_type' => $model::class,
 
                 'human_message' => $human_message,
