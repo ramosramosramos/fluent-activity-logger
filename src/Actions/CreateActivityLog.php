@@ -39,7 +39,6 @@ final class CreateActivityLog
 
             $except = config()->array('activitylogger.request_payload.except', []);
 
-          //@phpstan-ignore-next-line
             $model = $made_by_model ?? auth()->user();
 
             return ActivityLog::create(attributes: [
