@@ -3,7 +3,6 @@ includes:
     - vendor/nesbot/carbon/extension.neon
     - phar://phpstan.phar/conf/bleedingEdge.neon
 parameters:
-     paths:
+    paths:
         - src
-        - tests
     level: max
