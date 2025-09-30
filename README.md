@@ -40,32 +40,37 @@ This will publish:
 Inside `config/activitylogger.php` you can configure:
 
 ```php
+declare(strict_types=1);
+
 return [
 
-    // The table used for storing activity logs
-    'table_name' => (string) env('ACTIVITY_ACTIVITY_LOGGER', 'activity_logs'),
+    'table_name' => (string) env('ACTIVITY_LOGGER_TABLE', 'activity_logs'),
 
-    // Which Eloquent model events should be logged automatically
-    'model_events' => [
-        'created'      => true,
-        'updated'      => true,
-        'deleted'      => true,
-        'restored'     => false,
+    'model_events' => (array) [
+
+        'created' => true,
+        'updated' => true,
+        'deleted' => true,
+
+        'restored' => false,
         'forceDeleted' => false,
-        'creating'     => false,
-        'updating'     => false,
-        'deleting'     => false,
+
+        'creating' => false,
+        'updating' => false,
+        'deleting' => false,
+
     ],
 
-    // Request fields to exclude from request payload logging
     'request_payload' => [
         'except' => [
             'password',
             'password_confirmation',
+            'remember_token',
         ],
     ],
 
 ];
+
 ```
 
 ---
@@ -99,7 +104,7 @@ createActivityLog(
 $user = \App\Models\User::factory()->create()->fresh();
 
 createActivityLog(
-    $user,
+    $made_by_model:$user,
     human_message: 'User registered',
     human_extra_message: ['email' => $user->email]
 );
@@ -108,13 +113,49 @@ createActivityLog(
 $user = \App\Models\User::factory()->create()->fresh();
 
 createActivityLog()->handle(
-    $user,
+    $made_by_model:$user,
     human_message: 'User created via factory',
     developer_message: 'POST /register',
     developer_extra_message: ['ip' => request()->ip()],
     application_extra_message: ['debug' => 'custom app info']
 );
 ```
+
+---
+
+## Fluent Activity Builder
+
+You can also use the `activity()` helper for a clean, chainable syntax:
+
+```php
+// Minimal log
+activity()
+    ->humanMessage('User updated profile')
+    ->create();
+
+// With model and extra messages
+$user = \App\Models\User::factory()->create()->fresh();
+
+activity()
+    ->madeByModel($user)
+    ->humanMessage('User registered')
+    ->humanExtraMessage(['email' => $user->email])
+    ->developerMessage('POST /register')
+    ->developerExtraMessage(['ip' => request()->ip()])
+    ->applicationExtraMessage(['debug' => 'custom app info'])
+    ->create();
+```
+
+---
+
+## Which Style to Use?
+
+| Style              | Example                                                | When to Use                                        |
+| ------------------ | ------------------------------------------------------ | -------------------------------------------------- |
+| **Quick helper**   | `activityLog($user, human_message: 'User registered')` | Simple one-liner logs.                             |
+| **Action**         | `createActivityLog()->handle($user, ...)`              | When you need full control and explicit arguments. |
+| **Builder**        | `Activity::make()->humanMessage(...)->create()`        | When building logs step by step.                   |
+| **Helper Builder** | `activity()->humanMessage(...)->create()`              | Cleanest, most expressive way for everyday use.    |
 
 ---
 
@@ -148,4 +189,3 @@ The MIT License (MIT).
 Please see [License File](LICENSE) for more information.
 
 ---
-

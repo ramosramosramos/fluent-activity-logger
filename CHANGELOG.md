@@ -23,4 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Helper functions:
   - `activityLog()` → access the ActivityLog model
   - `createActivityLog()` → quickly create activity logs
+  - `activity()` → fluent interface for creating activity logs
 - Fallback to `auth()->user()` if no model is passed
+
+- Test improvements covering both explicit `madeByModel()` and fallback `auth()->user()` usage

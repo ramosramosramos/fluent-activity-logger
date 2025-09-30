@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
 
-    'table_name' => (string) env('ACTIVITY_ACTIVITY_LOGGER', 'activity_logs'),
+    'table_name' => (string) env('ACTIVITY_LOGGER_TABLE', 'activity_logs'),
 
     'model_events' => (array) [
 
@@ -25,6 +25,7 @@ return [
         'except' => [
             'password',
             'password_confirmation',
+            'remember_token',
         ],
     ],
 
